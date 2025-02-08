@@ -12,6 +12,7 @@ import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
+import FadeMenu from './FadeMenu';
 
 const pages = ['Contact', 'Services', 'Reviews'];
 
@@ -77,7 +78,7 @@ function Navbar() {
               sx={{ display: { xs: 'block', md: 'none' } }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
+                <MenuItem href='#' key={page} onClick={handleCloseNavMenu}>
                   <Typography sx={{ textAlign: 'center' }}>{page}</Typography>
                 </MenuItem>
               ))}
@@ -102,16 +103,39 @@ function Navbar() {
           >
             CAULKING SOLUTIONS
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page) => (
-              <Button
-                key={page}
+          <Box sx={{ flexGrow: 1, justifyContent: "end", columnGap: "2em", display: { xs: 'none', lg: 'flex' } }}>
+            <Button
+                key={"Home"}
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                {page}
-              </Button>
-            ))}
+                Home
+            </Button>
+            <FadeMenu title='Services'>
+              <MenuItem href='#'>
+                Interior Caulking
+              </MenuItem>
+              <MenuItem href='#'>
+                Exterior Caulking
+              </MenuItem>
+              <MenuItem href='#'>
+                Doors & Bathrooms
+              </MenuItem>
+            </FadeMenu>
+            <Button
+                key={"Home"}
+                onClick={handleCloseNavMenu}
+                sx={{ my: 2, color: 'white', display: 'block' }}
+              >
+                About
+            </Button>
+            <Button
+                key={"Home"}
+                onClick={handleCloseNavMenu}
+                sx={{ my: 2, color: 'white', display: 'block' }}
+              >
+                Contact Us
+            </Button>
           </Box>
         </Toolbar>
       </Container>
