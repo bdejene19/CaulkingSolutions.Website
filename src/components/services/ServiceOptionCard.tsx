@@ -3,52 +3,47 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import CardActionArea from '@mui/material/CardActionArea';
+import Image from 'next/image';
+import { StaticImport } from 'next/dist/shared/lib/get-img-props';
+import { Button } from '@mui/material';
+import { ArrowForward } from '@mui/icons-material';
 
 export interface ServiceOptionProps {
   name: string;
-  icon: React.ReactNode;
-  // description: string;
-  // img?: string;
-  onClick: (e: MouseEvent<HTMLButtonElement>) => void;
+  imgSrc: string | StaticImport;
+  description: string;
+  href: string;
 }
 
 export const ServiceOptionCard = (props: ServiceOptionProps) => {
-  const handleMouseHover = (e: MouseEvent<HTMLElement>) => {
-    e.currentTarget.style.cssText = `
-      transform: translate(1.5vw, -3vh);
-      transition: 0.5s ease-in-out
-    `
+  const handleMouseOver = (e: MouseEvent<HTMLAnchorElement>) => {
+    console.log(e)
   }
 
-  const resetCardPosition = (e: MouseEvent<HTMLElement>) => {
-    e.currentTarget.style.cssText = `
-      transform: translate(0, 0);
-      transition: 0.5s ease-in-out
-    `
+  const handleMouseExit = (e: MouseEvent<HTMLAnchorElement>) => {
+    console.log(e)
   }
+
   return (
     <CardActionArea 
-        onClick={props.onClick} 
-        sx={{ maxWidth: 345, maxHeight: "50vh" }} 
-        onMouseOver={handleMouseHover}
-        onMouseLeave={resetCardPosition}      
     >
     <Card>
-
-      <CardContent  
+      <CardContent 
         sx={{ 
-          maxWidth: 345, 
-          display: "flex", 
-          flexDirection: "column",
-          alignItems: "center", 
-          justifyContent: "center", 
-          maxHeight: "50vh", 
-          minHeight: "50vh", 
-          rowGap: "3em",
-        }}
+          display: "flex",
+          flexWrap: "wrap",
+          alignItems: "center",
+          justifyContent: "space-between"
+        }} 
       >
-        <Typography variant="h4">{props.name}</Typography>
-        {props.icon}
+        <Image src={props.imgSrc} alt='Service Option Visual' style={{flex: "1 1 5em"}}/>
+        <Typography flex={"1 1 5em"} variant="h4">{props.name}</Typography>
+        <Typography flex={"1 1 5em"} variant='body1'>{props.description}</Typography>
+        <div style={{flex: "1 1 5em", display:"grid",justifyContent: "end", alignItems: "center"}}>
+          <Button onMouseOver={handleMouseOver} onMouseLeave={handleMouseExit} href={props.href}>
+            <ArrowForward/>
+          </Button>
+        </div>
       </CardContent>
       
         {/* <CardMedia
@@ -58,10 +53,10 @@ export const ServiceOptionCard = (props: ServiceOptionProps) => {
           alt="green iguana"
         />
         <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
+          <Typography gutterBottom flex={"1 1 5em"} variant="h5" component="div">
             {props.name}
           </Typography>
-          <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+          <Typography flex={"1 1 5em"} variant="body2" sx={{ color: 'text.secondary' }}>
             {props.description}
           </Typography>
         </CardContent> */}
