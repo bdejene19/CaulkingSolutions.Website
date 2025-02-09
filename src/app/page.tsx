@@ -1,8 +1,9 @@
 import ContactFooter from "@/components/contact/ContactFooter";
-import Navbar from "@/components/navbar/Navbar";
 import ReviewContent from "@/components/reviews/ReviewContent";
 import ServiceOptions from "@/components/services/ServiceOptions";
 import bg from "../../public/background.png"
+import Hero from "@/components/hero/Hero";
+import { MainBenefits } from "@/components/benefits/MainBenefits";
 
 
 export default function Home() {
@@ -12,14 +13,15 @@ export default function Home() {
         backgroundSize: "cover",
         width: "100vw",
         height: "100vh",
-        overflowY: "scroll"
+        overflowY: "scroll",
+        padding: "1em"
     }}>
-      <Navbar/>
-      <main style={{padding: "1em"}}>
+        <Hero/>
+        <MainBenefits containerStyle={{backgroundColor: "#f9eeee", display: "grid", gap: "1em", borderRadius: "5px",  padding: "2em"}}/>
         <ServiceOptions/>
         <ReviewContent/>
         <ContactFooter></ContactFooter>
-      </main>
+
     </div>
   );
 }
