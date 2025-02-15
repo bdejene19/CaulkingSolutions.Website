@@ -2,7 +2,7 @@ import * as React from 'react';
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import Fade from '@mui/material/Fade';
-import { ArrowDownward } from '@mui/icons-material';
+import { ArrowDropDown } from '@mui/icons-material';
 
 interface FadeMenuProps {
     title: string;
@@ -27,7 +27,7 @@ export default function FadeMenu(props: FadeMenuProps) {
         aria-expanded={open ? 'true' : undefined}
         onClick={handleClick}
         sx={{ my: 2, color: 'white', display: 'flex' }}
-        startIcon={<ArrowDownward/>}
+        endIcon={<ArrowDropDown/>}
 
       >
         {props.title}

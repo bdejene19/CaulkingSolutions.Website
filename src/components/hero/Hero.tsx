@@ -1,6 +1,9 @@
+import { EmojiEventsOutlined } from '@mui/icons-material'
 import { Box, Button, Card, CardContent, Typography } from '@mui/material'
 import Image from 'next/image'
 import React from 'react'
+import { ContactExpertButton } from './ContactExpertButton'
+import bg from "../../../public/background.png"
 
 
 const Hero = () => {
@@ -12,19 +15,28 @@ const Hero = () => {
             <Typography variant="h4">Commited to High Quality with Affordable Pricing</Typography>
         </div>
         <Box
-            sx={{display: "flex", gap: "1em", flexWrap: "wrap", padding: "3em 0", alignItems: "center", justifyContent: "center"}}
+            sx={{display: "flex", gap: "1em", flexWrap: "wrap", padding: "3em 0", alignItems: "center", justifyContent: "space-between"}}
         > 
-        
-            <Card sx={{borderRadius: "5px", height: "35vh", overflow: "hidden", minWidth: "25vw", maxWidth: {sm: "90vw", md: "25vw"}, minHeight: "30vh", background: "https://www.constructionext.com/roofing-exteriors-residential-products/caulking-tips-to-level-up-your-game"}}>
-                <CardContent sx={{display: "grid", height: "100%", alignItems: "center", justifyContent: "center"}}>
-                    <Image src={""} alt='Moe on Building'/>
-                </CardContent>
-            </Card>
-            <Card sx={{borderRadius: "5px", height: "40vh", overflow: "hidden", minWidth: "25vw", maxWidth: {sm: "90vw", md: "25vw"}, minHeight: "30vh", backgroundImage: "https://freemontbuilding.com/wp-content/uploads/2023/04/skyscraper-3196390_1920-1.jpg"}}>
-                <CardContent sx={{display: "grid", height: "100%", alignItems: "center", justifyContent: "center"}}>
-                    <Typography variant='h6'>Save Energy, Stay Modern, and <span style={{color: "lightgreen"}}>Lower your Bills</span></Typography>
-                </CardContent>
-            </Card>
+            <div>
+                <ContactExpertButton title='Contact Our Experts' icons={[bg.src,bg.src]}/>
+            </div>
+            <div style={{display: "flex", gap: "1em", alignItems: "center"}}>
+                <Card sx={{borderRadius: "5px", height: "35vh", overflow: "hidden", minWidth: "25vw", maxWidth: {sm: "90vw", md: "25vw"}, minHeight: "30vh", background: "https://www.constructionext.com/roofing-exteriors-residential-products/caulking-tips-to-level-up-your-game"}}>
+                    <CardContent sx={{display: "grid", height: "100%", alignItems: "center", justifyContent: "center"}}>
+                        <Image src={""} alt='Moe on Building'/>
+                    </CardContent>
+                </Card>
+                <Card sx={{borderRadius: "5px", height: "40vh", overflow: "hidden", minWidth: "25vw", maxWidth: {sm: "90vw", md: "25vw"}, minHeight: "30vh", backgroundImage: "https://freemontbuilding.com/wp-content/uploads/2023/04/skyscraper-3196390_1920-1.jpg"}}>
+                    <CardContent sx={{display: "grid", height: "100%", alignItems: "center", justifyContent: "center"}}>
+                        <Typography variant='h6'>Save Energy, Stay Modern, and <span style={{color: "lightgreen"}}>Lower your Bills</span></Typography>
+                    </CardContent>
+                </Card>
+            </div>
+            
+            <div style={{ textAlign: "center"}}>
+                <EmojiEventsOutlined fontSize='large' color='primary' style={{border: "solid black 3px", borderRadius: "100%", padding: "0.25em", height: "10vh", width: "7vw"}}/>
+                <Typography variant='body1'>First class in our Industry</Typography>
+            </div>
         </Box>
 
         <div style={{textAlign: "center"}}>
