@@ -6,6 +6,7 @@ import Section from '../Section';
 import { AutoAwesome, CalendarMonth, Close, HomeRepairService } from '@mui/icons-material';
 import ServiceModalContent from '../modal/ServiceModalContent';
 import BenefitsModalContent from '../modal/BenefitsModalContent';
+import bg from "../../../public/background.png"
 
 interface ServiceOptionDto {
     name: string;
@@ -55,13 +56,11 @@ const ServiceOptions = () => {
     // const handleOptionClick = (e) => {}
 
   return (
-    <Section title={title} titleCaption={caption} titleStyle={{display: "flex", columnGap: "2em", justifyContent: "space-between"}}>
+    <Section title={title} titleCaption={caption} titleStyle={{display: "flex", flexWrap: "wrap",columnGap: "2em", justifyContent: "space-between"}}>
         <Box 
             display="grid" 
-            justifyContent={"center"} 
-            alignItems={{xs: "center", md: "normal"}}
-            flexDirection={{ xs: "column", md: "row"}} 
-            gap={"5em"}
+
+            gap={"3em"}
         >
             {providedServices.map(service => 
                 <ServiceOptionCard
@@ -69,7 +68,7 @@ const ServiceOptions = () => {
                     name={service.name}
                     description='Occaecat adipisicing sint ipsum Lorem duis nisi aliqua. Culpa adipisicing fugiat tempor ex pariatur nisi ullamco proident in. Sunt exercitation exercitation sit tempor nulla elit dolor. Quis quis proident nulla excepteur aute duis duis anim tempor minim do.'
                     href='#'
-                    imgSrc={""}
+                    imgSrc={bg.src}
                 />)}
         </Box>
         <Dialog open={modal.isOpen} scroll='body' maxWidth={"md"} onClose={(e, reason) => {

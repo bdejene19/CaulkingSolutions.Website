@@ -1,12 +1,11 @@
-import React, { MouseEvent } from 'react'
+"use client"
+import React, { CSSProperties, useState } from 'react'
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
-import CardActionArea from '@mui/material/CardActionArea';
 import Image from 'next/image';
 import { StaticImport } from 'next/dist/shared/lib/get-img-props';
-import { Button } from '@mui/material';
-import { ArrowForward } from '@mui/icons-material';
+import { ArrowForward, ArrowOutwardRounded } from '@mui/icons-material';
 
 export interface ServiceOptionProps {
   name: string;
@@ -16,52 +15,35 @@ export interface ServiceOptionProps {
 }
 
 export const ServiceOptionCard = (props: ServiceOptionProps) => {
-  const handleMouseOver = (e: MouseEvent<HTMLAnchorElement>) => {
-    console.log(e)
+  const [isOutward, setIsOutward] = useState(false);
+  const [outwardStyle, setOutwardStyle] = useState<CSSProperties>();
+
+  const handleMouseOver = () => {
+    setIsOutward(true)
+    setOutwardStyle({backgroundColor: "skyblue", border: "solid skyblue 3px", textAlign: "center", borderRadius: "100%", boxShadow: "0 1.5px 1.5px lightgrey"})
   }
 
-  const handleMouseExit = (e: MouseEvent<HTMLAnchorElement>) => {
-    console.log(e)
+  const handleMouseExit = () => {
+    setIsOutward(false)
+    setOutwardStyle({})
   }
 
   return (
-    <CardActionArea 
-    >
+  
     <Card>
       <CardContent 
-        sx={{ 
-          display: "flex",
-          flexWrap: "wrap",
-          alignItems: "center",
-          justifyContent: "space-between"
-        }} 
+        style={{display: "flex", flexWrap: "wrap", alignItems: "center"}}
       >
-        <Image src={props.imgSrc} alt='Service Option Visual' style={{flex: "1 1 5em"}}/>
-        <Typography flex={"1 1 5em"} variant="h4">{props.name}</Typography>
-        <Typography flex={"1 1 5em"} variant='body1'>{props.description}</Typography>
-        <div style={{flex: "1 1 5em", display:"grid",justifyContent: "end", alignItems: "center"}}>
-          <Button onMouseOver={handleMouseOver} onMouseLeave={handleMouseExit} href={props.href}>
-            <ArrowForward/>
-          </Button>
+        <Image src={props.imgSrc} width={`20`} height={"20"} alt='Service Option Visual' style={{flex: "1 1 15em", height: "100%", width: "100%"}}/>
+        <Typography flex={"1 1 15em"} textAlign={"center"} variant="h5">{props.name}</Typography>
+        <Typography flex={"1 1 15em"} textAlign={"center"} variant='body1'>{props.description}</Typography>
+        <div style={{flex: "1 1 15em", display:"grid", justifyContent: "end", alignItems: "center"}}>
+          <a style={outwardStyle} onMouseOver={handleMouseOver} onMouseLeave={handleMouseExit} href={props.href}>
+            {isOutward ? <ArrowOutwardRounded/> : <ArrowForward/>}
+          </a>
         </div>
       </CardContent>
-      
-        {/* <CardMedia
-          component="img"
-          height="140"
-          image={props.img }
-          alt="green iguana"
-        />
-        <CardContent>
-          <Typography gutterBottom flex={"1 1 5em"} variant="h5" component="div">
-            {props.name}
-          </Typography>
-          <Typography flex={"1 1 5em"} variant="body2" sx={{ color: 'text.secondary' }}>
-            {props.description}
-          </Typography>
-        </CardContent> */}
     </Card>
-    </CardActionArea>
 
   );
 }
