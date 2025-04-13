@@ -1,7 +1,7 @@
 import { Box, Typography } from '@mui/material'
 import React, { CSSProperties } from 'react'
 import Benefit from './Benefit'
-import { ArrowForward, Money, Save, WaterDamage } from '@mui/icons-material'
+import { Money, Save, WaterDamage } from '@mui/icons-material'
 
 const benefits = [
     {

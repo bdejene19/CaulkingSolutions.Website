@@ -1,4 +1,3 @@
-import { ArrowBack } from '@mui/icons-material'
 import { Card, Typography } from '@mui/material'
 import React, { CSSProperties } from 'react'
 
@@ -11,7 +10,7 @@ interface BenefitProps {
 }
 export const Benefit = (props: BenefitProps) => {
   return (
-    <Card  style={{...props.style}} sx={{height: "100%", overflowY: "scroll", minHeight: "45vh", maxWidth: { xs: "95vw", md: "30vw"}, maxHeight: "45vh", flex: "1 1 10em", padding: "3em 1em"}}>
+    <Card  style={{...props.style}} sx={{height: "100%", overflowY: "scroll", minHeight: "45vh", maxWidth: { xs: "95vw", md: "25vw"}, maxHeight: "45vh", flex: "1 1 10em", padding: "3em 1em"}}>
         <div>
             {props.icon}
             <Typography variant='body1' fontWeight={600}>{props.title}</Typography>
