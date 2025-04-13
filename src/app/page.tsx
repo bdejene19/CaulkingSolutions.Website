@@ -1,7 +1,6 @@
 import ContactFooter from "@/components/contact/ContactFooter";
 import ReviewContent from "@/components/reviews/ReviewContent";
 import ServiceOptions from "@/components/services/ServiceOptions";
-import bg from "../../public/background.png"
 import Hero from "@/components/hero/Hero";
 import { MainBenefits } from "@/components/benefits/MainBenefits";
 import { Faqs } from "@/components/faqs/Faqs";

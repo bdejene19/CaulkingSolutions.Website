@@ -1,16 +1,15 @@
 "use client"
-import { Box, Button, Dialog, DialogContent } from '@mui/material'
-import React, { useState } from 'react'
+import { Box } from '@mui/material'
+import React from 'react'
 import ServiceOptionCard from './ServiceOptionCard';
 import Section from '../Section';
-import { AutoAwesome, CalendarMonth, Close, HomeRepairService } from '@mui/icons-material';
-import ServiceModalContent from '../modal/ServiceModalContent';
-import BenefitsModalContent from '../modal/BenefitsModalContent';
-import bg from "../../../public/background.png"
+import { AutoAwesome, CalendarMonth, HomeRepairService } from '@mui/icons-material';
 
 interface ServiceOptionDto {
     name: string;
     icon: React.ReactNode;
+    bgImg: string;
+    description?: string;
 }
 
 const title = "Providing Best Services";
@@ -19,47 +18,32 @@ const caption = "We are dedicated to lor Enim incididunt ad sunt non ullamco mag
 const providedServices: ServiceOptionDto[] = [
     {
         name: "Exterior Caulking",
-        icon: <CalendarMonth style={{fontSize: "5em"}}/>
+        icon: <CalendarMonth style={{fontSize: "5em"}}/>,
+        bgImg: 'https://windowdepottylertx.com/wp-content/uploads/2023/12/caulking-window-exterior-Large-1030x686.jpeg'
     },
     {
         name: "Interior Caulking",
-        icon: <HomeRepairService style={{fontSize: "5em"}}/>
+        icon: <HomeRepairService style={{fontSize: "5em"}}/>,
+        bgImg: ""
+        // bgImg: 'https://www.energy.gov/sites/default/files/styles/full_article_width/public/caulk_18230501.jpg?itok=10YtRDNb'
+
     },
     {
         name: "Commercial",
-        icon: <AutoAwesome style={{fontSize: "5em"}}/>
+        icon: <AutoAwesome style={{fontSize: "5em"}}/>,
+        bgImg: ''
     },
     {
         name: "Doors and Bathrooms",
-        icon: <AutoAwesome style={{fontSize: "5em"}}/>
+        icon: <AutoAwesome style={{fontSize: "5em"}}/>,
+        bgImg: 'https://contentgrid.homedepot-static.com/hdus/en_US/DTCCOMNEW/Articles/types-of-caulks-and-sealants-for-your-projects-section-2.jpg'
     }
 ]
 const ServiceOptions = () => {
-    const [modal, setModal] = useState({
-        isOpen: false,
-        contentName: "",
-    })
-
-    // useEffect(() => {
-    //     let content = <></>;
-    //     if (modal.contentName == "Book Appointment") {
-
-    //     } else if (modal.contentName == "Services") {
-    //         content = <ServiceModalContent/>
-    //     } else if (modal.contentName == "Benefits") {
-    //         content = <BenefitsModalContent/>
-    //     } 
-
-    //     setModal({...modal, content: content})
-            
-    // }, [modal])
-    // const handleOptionClick = (e) => {}
-
   return (
     <Section title={title} titleCaption={caption} titleStyle={{display: "flex", flexWrap: "wrap",columnGap: "2em", justifyContent: "space-between"}}>
         <Box 
             display="grid" 
-
             gap={"3em"}
         >
             {providedServices.map(service => 
@@ -68,21 +52,9 @@ const ServiceOptions = () => {
                     name={service.name}
                     description='Occaecat adipisicing sint ipsum Lorem duis nisi aliqua. Culpa adipisicing fugiat tempor ex pariatur nisi ullamco proident in. Sunt exercitation exercitation sit tempor nulla elit dolor. Quis quis proident nulla excepteur aute duis duis anim tempor minim do.'
                     href='#'
-                    imgSrc={bg.src}
+                    imgSrc={service.bgImg}
                 />)}
         </Box>
-        <Dialog open={modal.isOpen} scroll='body' maxWidth={"md"} onClose={(e, reason) => {
-            if (reason == "backdropClick" || reason == "escapeKeyDown") {
-                setModal({ contentName: "", isOpen: false })
-            }
-        }} >
-            <DialogContent style={{overflowY: "scroll"}} sx={{width: "65vw", height: "70vh", display: "flex", alignItems: "flex-end", justifyContent: "center" }}>
-                {modal.contentName == "Book Appointment" ? null : null}
-                {modal.contentName == "Services" ? <ServiceModalContent/> : null}
-                {modal.contentName == "Benefits" ? <BenefitsModalContent/> : null}
-                <Button onClick={() => setModal({ contentName: "", isOpen: false })}><Close/>Close</Button>
-            </DialogContent>
-        </Dialog>
     </Section>
   )
 }

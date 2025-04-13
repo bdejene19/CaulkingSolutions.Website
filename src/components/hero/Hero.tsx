@@ -23,7 +23,7 @@ const Hero = () => {
             <div style={{display: "flex", gap: "1em", alignItems: "center"}}>
                 <Card sx={{borderRadius: "5px", height: "35vh", overflow: "hidden", minWidth: "25vw", maxWidth: {sm: "90vw", md: "25vw"}, minHeight: "30vh", background: "https://www.constructionext.com/roofing-exteriors-residential-products/caulking-tips-to-level-up-your-game"}}>
                     <CardContent sx={{display: "grid", height: "100%", alignItems: "center", justifyContent: "center"}}>
-                        <Image src={""} alt='Moe on Building'/>
+                        <Image src={"https://fastly.picsum.photos/id/237/536/354.jpg?hmac=i0yVXW1ORpyCZpQ-CknuyV-jbtU7_x9EBQVhvT5aRr0"} width={300} height={200} style={{ borderRadius: "5px"}} alt='Moe on Building'/>
                     </CardContent>
                 </Card>
                 <Card sx={{borderRadius: "5px", height: "40vh", overflow: "hidden", minWidth: "25vw", maxWidth: {sm: "90vw", md: "25vw"}, minHeight: "30vh", backgroundImage: "https://freemontbuilding.com/wp-content/uploads/2023/04/skyscraper-3196390_1920-1.jpg"}}>

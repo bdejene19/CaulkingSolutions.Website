@@ -123,14 +123,14 @@ function Navbar() {
               </MenuItem>
             </FadeMenu>
             <Button
-                key={"Home"}
+                key={"About"}
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
                 About
             </Button>
             <Button
-                key={"Home"}
+                key={"Contact Us"}
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
