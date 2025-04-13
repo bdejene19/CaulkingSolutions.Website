@@ -1,6 +1,8 @@
+"use client"
 import {  Facebook, Instagram, Mail, Phone } from '@mui/icons-material';
 import { Box, Button, Typography } from '@mui/material';
 import React from 'react'
+import { ContactForm } from './ContactForm';
 
 interface ContactInfo {
     name: string;
@@ -17,10 +19,11 @@ const contact: ContactInfo = {
   facebook: "https://facebook.com",
   instagram: "https://instagram.com"
 }
-const ContactFooter = async () => {
+const ContactFooter = () => {
 
   return (
     <div>
+      <ContactForm/>
       <Typography variant="h2" id="contact">Contact Us</Typography>
       <ul style={{listStyleType: "none"}}>
         <Box display={"flex"} flexWrap={"wrap"} columnGap={"2em"} alignItems={"center"} justifyContent={"center"}>
