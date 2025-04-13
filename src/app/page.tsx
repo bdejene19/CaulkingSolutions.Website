@@ -4,21 +4,18 @@ import ServiceOptions from "@/components/services/ServiceOptions";
 import bg from "../../public/background.png"
 import Hero from "@/components/hero/Hero";
 import { MainBenefits } from "@/components/benefits/MainBenefits";
+import { Faqs } from "@/components/faqs/Faqs";
 
 
 export default function Home() {
   return (
     <div style={{
-        backgroundImage:  `url(${bg.src})`, 
-        backgroundSize: "cover",
-        width: "100vw",
-        height: "100vh",
-        overflowY: "scroll",
-        padding: "1em"
+        padding: "3em"
     }}>
         <Hero/>
-        <MainBenefits containerStyle={{backgroundColor: "#f9eeee", display: "grid", gap: "1em", borderRadius: "5px",  padding: "2em"}}/>
+        <MainBenefits containerStyle={{backgroundColor: "#f9eeee", display: "grid", height: "100%", gap: "1em", borderRadius: "5px",  padding: "2em"}}/>
         <ServiceOptions/>
+        <Faqs/>
         <ReviewContent/>
         <ContactFooter></ContactFooter>
 
